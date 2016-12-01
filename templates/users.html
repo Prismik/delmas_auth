@@ -1,0 +1,22 @@
+{% extends "_layout.html" %}
+{% block body %}
+<div id="users">
+  <h1>User list - Admin people only</h1>
+  <table>
+    <thead><tr><th>id</th><th>role</th><tr></thead>
+    <tbody>
+      {% for id, user in user_list.iteritems() -%}
+      <tr>
+        <td>{{ id }}</td><td>{{ user.role }}</td>
+      </tr>
+      {%- endfor %}
+    </tbody>
+  </table>
+  <form action="/users/create" method="post">
+    <input type="text" placeholder="user id" class="form-control" name="id">
+    <input type="text" placeholder="role" class="form-control" name="role">
+    <input type="text" placeholder="default password" class="form-control" name="pwd">
+    <button type="submit" class="btn btn-success">Create</button>
+  </form>
+</div>
+{% endblock %}

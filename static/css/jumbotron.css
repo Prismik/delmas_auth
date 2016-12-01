@@ -1,0 +1,27 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-bottom: 2rem;
+}
+
+
+
+#square {
+	display: inline-block;
+	border: 6px solid red;
+	margin: 10px auto;
+	width: 400px;
+	height: 400px;
+	padding:50px 10px;
+	text-align: center;
+}
+
+#circle {
+	display: inline-block;
+	border: 6px solid red;
+	border-radius: 200px;
+	margin: 10px auto;
+	width: 400px;
+	height: 400px;
+	padding:50px 10px;
+	text-align: center;
+}

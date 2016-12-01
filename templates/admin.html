@@ -1,0 +1,32 @@
+﻿{% extends "_layout.html" %}
+{% block body %}
+<div id="options">
+	
+	<h1>Options d'authentifications</h1>
+	<form action="/admin/options" method="POST">
+		<br>
+		<label>Nombre de tentatives maximales : </label><br>
+		<input type="text" name="auth_max_attempt" value="{{ settings.auth_max_attempt }}"/> tentatives<br>
+		
+		<h2>Delais avant prochaines sequences de tentatives : </h2><br>
+		<input type="text" name="auth_attempt_timespan" value="{{ settings.auth_attempt_timespan }}"/> secondes<br>
+		
+		<h2>Bloquer l'acces suite a la deuxieme atteinte de la limite : </h2><br>
+		<input type="checkbox" name="bloquerAcces" value="bloquerAcces"> Bloquer l'acces<br>
+		
+		<h2>Limite de reutilisation d'un mot de passe : </h2><br>
+		<input type="radio" name="reutilisation" value="5" checked> Pas parmis les 5 derniers<br>
+		<input type="radio" name="reutilisation" value="1"> Pas le dernier mot de passe<br>
+		<input type="radio" name="reutilisation" value="99999"> Reutilisation autorisee<br>
+		
+		<h2>Caracteristiques d'un mot de passe : </h2><br>
+		Longueur du mot de passe : <input type="text" name="pwd_len" value="{{ settings.pwd_len }}"><br>
+		Utiliser au moins un majuscule et un minuscule : <input type="checkbox" name="pwd_should_contain_upper_and_lower" {% if settings.pwd_should_contain_upper_and_lower %} checked {% endif %}><br>
+		Utiliser au moins un chiffre : <input type="checkbox" name="pwd_should_contain_digit" {% if settings.pwd_should_contain_digit %} checked {% endif %}><br>
+		Utiliser au moins un caractere special : <input type="checkbox" name="pwd_should_contain_special_char" {% if settings.pwd_should_contain_special_char %} checked {% endif %}><br>
+		
+		<input type="submit" name="submit" value="Mettre a jour"/>
+	</form>
+
+</div>
+{% endblock %}
